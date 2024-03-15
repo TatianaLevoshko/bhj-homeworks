@@ -9,22 +9,19 @@ let lostMole = parseInt(lost.textContent);
 function getHole(index) {
 	return document.getElementById("hole" + index);
 }
-// Обработчик клика ко всем дыркам
+//
 for (let i = 1; i < 10; i++) {
-	//Обработчик клика
 	getHole(i).onclick = function () {
 		if (this.className.includes("hole_has-mole")) {
-			// Счетчик убитых кротов
+			//Счетчик убитых кротов
 			++deadMole;
-			// Обновляем текстовое содержимое элемента
 			dead.textContent = deadMole;
 		} else {
 			//Счетчик промахов
 			++lostMole;
-			// Обновляем текстовое содержимое элемента
 			lost.textContent = lostMole;
 		}
-// Проверка победы или поражения
+
 		if (deadMole === 10) {
 			alert("Победа!");
 			//Сброс игры

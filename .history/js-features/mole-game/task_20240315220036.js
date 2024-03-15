@@ -16,15 +16,14 @@ for (let i = 1; i < 10; i++) {
 		if (this.className.includes("hole_has-mole")) {
 			// Счетчик убитых кротов
 			++deadMole;
-			// Обновляем текстовое содержимое элемента
+			//
 			dead.textContent = deadMole;
 		} else {
 			//Счетчик промахов
 			++lostMole;
-			// Обновляем текстовое содержимое элемента
 			lost.textContent = lostMole;
 		}
-// Проверка победы или поражения
+
 		if (deadMole === 10) {
 			alert("Победа!");
 			//Сброс игры
