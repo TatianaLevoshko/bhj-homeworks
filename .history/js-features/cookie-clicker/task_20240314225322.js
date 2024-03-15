@@ -3,7 +3,7 @@
 //let cookie = document.querySelector('.clicker__cookie');
 //let counter = document.querySelector('.clicker__counter');
 
-// Или (более быстрый)
+// Или (более более быстрый)
 const cookie = document.getElementById('cookie');
 const counter = document.getElementById('clicker__counter');
 
