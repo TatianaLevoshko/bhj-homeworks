@@ -39,11 +39,42 @@ for (let i = 1; i < 10; i++) {
 		//Вызов функции endGame
 		if (deadMole === 10) {
 			endGame("win");
-		} else if (lostMole === 5) {
-			endGame("lose");
-		}
+		} else if 
 	}
 }
+
+
+
+
+
+
+
+
+
+
+/*
+// Проверка победы или поражения
+		if (deadMole === 10) {
+			alert("Победа!");
+			//Сброс игры
+			dead.textContent = "0";
+			lost.textContent = "0";
+			deadMole = 0;
+			lostMole = 0;
+		} else if (lostMole === 5) {
+			alert("Проигрыш!");
+			//Сброс игры
+			dead.textContent = "0";
+			lost.textContent = "0";
+			deadMole = 0;
+			lostMole = 0;		
+
+		}
+		*/
+
+
+
+	
 	
 
 	  
