@@ -1,0 +1,17 @@
+.symbol {
+  font-size: 50px;
+}
+
+.symbol_correct {
+  color: green;
+}
+
+.word_incorrect {
+  background: red;
+  color: #fff;
+}
+
+.timer {
+  margin:20px 250px;
+}
+
