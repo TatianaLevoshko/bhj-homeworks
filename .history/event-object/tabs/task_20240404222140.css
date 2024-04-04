@@ -18,11 +18,13 @@
   display: none;
   padding: 20px;
 }
-.tab__content_active {
-  display: block;
+
+.tab__content..tab__content::before {
+  content: url(https://png.pngtree.com/png-clipart/20230806/original/pngtree-cute-crab-cartoon-for-you-design-red-cute-crab-vector-picture-image_9873194.png);
+  
 }
 
-.crab {
-  width: 300px;
+..tab__content {
+  display: block;
 }
 

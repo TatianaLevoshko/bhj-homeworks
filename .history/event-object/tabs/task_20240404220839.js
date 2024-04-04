@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			this.classList.add("tab_active");
 			// Скрываем все содержимое вкладок
 			tabContents.forEach(content => content.style.display = "none");
-			// Отображаем содержимое кликнутой вкладки
 			tabContents[index].style.display = "block";
 		});
 	});

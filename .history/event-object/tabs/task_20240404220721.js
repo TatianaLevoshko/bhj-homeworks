@@ -6,13 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Для каждой вкладки устанавливаем ОС клик
 	tabs.forEach((tab, index) => {
 		tab.addEventListener("click", function () {
-			// Удаляем класс активной вкладки у всех вкладок
+			// Удаляем класс
 			tabs.forEach(tab => tab.classList.remove("tab_active"));
-			// Добавляем класс активной вкладки той, на которую кликнули
 			this.classList.add("tab_active");
-			// Скрываем все содержимое вкладок
+
 			tabContents.forEach(content => content.style.display = "none");
-			// Отображаем содержимое кликнутой вкладки
 			tabContents[index].style.display = "block";
 		});
 	});
