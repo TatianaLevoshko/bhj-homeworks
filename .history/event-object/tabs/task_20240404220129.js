@@ -9,6 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			tabContents.forEach(content => content.style.display = "none");
 			tabContents[index].style.display = "block";
-		});
-	});
+		}
+	}
 });
