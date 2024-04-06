@@ -108,7 +108,7 @@ class Game {
 
     return words[index];
   }
-  // отображение слова на экране
+
   renderWord(word) {
     const html = [...word]
       .map(
@@ -122,4 +122,4 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game')); // новый объект игры
+new Game(document.getElementById('game'));

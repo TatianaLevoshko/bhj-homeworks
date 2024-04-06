@@ -30,11 +30,11 @@ class Game {
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
 
-    this.reset(); // метод для начала новой игры
+    this.reset(); // 
 
-    this.registerEvents(); // регистрация обработчика событий
+    this.registerEvents();
   }
-  // метод для сброса игры
+
   reset() {
     this.setNewWord();
     this.winsElement.textContent = 0;
@@ -45,7 +45,7 @@ class Game {
     time = setInterval(countdown, 1000);
   }
 
-  // метод для регистрации обработчиков событий
+
   registerEvents() {
     document.addEventListener("keydown", event => {
       const pressedKey = event.key.toUpperCase();
@@ -58,7 +58,7 @@ class Game {
       }
     });
   }
-  // обработка успешного нажатия клавиши
+
   success() {
     if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
     this.currentSymbol.classList.add('symbol_correct');
@@ -75,7 +75,7 @@ class Game {
     }
     this.setNewWord();
   }
-  //обработка неудачного нажатия клавиши
+
   fail() {
     if (++this.lossElement.textContent === 5) {
       alert('Вы проиграли!');
@@ -83,13 +83,13 @@ class Game {
     }
     this.setNewWord();
   }
-  // установка нового слова
-  setNewWord() {
-    const word = this.getWord(); // получаем новое слово
 
-    this.renderWord(word); // отображаем новое слово на экране
+  setNewWord() {
+    const word = this.getWord();
+
+    this.renderWord(word);
   }
-  // получаем новое слово из массива
+
   getWord() {
     const words = [
         'bob',
@@ -104,11 +104,11 @@ class Game {
         'love',
         'java'
       ],
-      index = Math.floor(Math.random() * words.length); // гегерируем случайный индекс
+      index = Math.floor(Math.random() * words.length);
 
     return words[index];
   }
-  // отображение слова на экране
+
   renderWord(word) {
     const html = [...word]
       .map(
@@ -122,4 +122,4 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game')); // новый объект игры
+new Game(document.getElementById('game'));

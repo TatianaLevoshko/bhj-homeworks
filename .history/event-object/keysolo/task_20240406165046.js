@@ -75,7 +75,7 @@ class Game {
     }
     this.setNewWord();
   }
-  //обработка неудачного нажатия клавиши
+  //
   fail() {
     if (++this.lossElement.textContent === 5) {
       alert('Вы проиграли!');
@@ -83,13 +83,13 @@ class Game {
     }
     this.setNewWord();
   }
-  // установка нового слова
-  setNewWord() {
-    const word = this.getWord(); // получаем новое слово
 
-    this.renderWord(word); // отображаем новое слово на экране
+  setNewWord() {
+    const word = this.getWord();
+
+    this.renderWord(word);
   }
-  // получаем новое слово из массива
+
   getWord() {
     const words = [
         'bob',
@@ -104,11 +104,11 @@ class Game {
         'love',
         'java'
       ],
-      index = Math.floor(Math.random() * words.length); // гегерируем случайный индекс
+      index = Math.floor(Math.random() * words.length);
 
     return words[index];
   }
-  // отображение слова на экране
+
   renderWord(word) {
     const html = [...word]
       .map(
@@ -122,4 +122,4 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game')); // новый объект игры
+new Game(document.getElementById('game'));

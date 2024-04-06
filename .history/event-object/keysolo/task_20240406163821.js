@@ -1,28 +1,28 @@
 "use strict";
-let time; // хранение дентификатора
-let initialTimeInSeconds = 60; // начальное значение
-// форматирирование времени
+let time;
+let initialTimeInSeconds = 60;
+
 function formatTime(seconds) {
-  const minutes = Math.floor(seconds / 60); // колличество минут
-  const remainingSeconds = seconds % 60; // колличество оставшегося времени
-// форматирование минут / секунд
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+
   const formattedMinutes = String(minutes).padStart(2, '0');
   const formattedSeconds = String(remainingSeconds).padStart(2, '0');
  
   return `${formattedMinutes}:${formattedSeconds}`;
 }
-// обратный отсчет
-function countdown() { 
-  if (initialTimeInSeconds > 0) {// проверка на оставшееся время
-    initialTimeInSeconds--; // уменьшение времени
+
+function countdown() {
+  if (initialTimeInSeconds > 0) {
+    initialTimeInSeconds--;
     document.getElementById("timer").textContent = formatTime(initialTimeInSeconds);
   } else {
-    clearInterval(time); // остановка интервала
+    clearInterval(time);
     alert("Время вышло, вы проиграли!");
-    game.reset(); // сброс игры
+    game.reset();
   }
 }
-// класс игры
+
 class Game {
   constructor(container) {
     this.container = container;
@@ -30,35 +30,35 @@ class Game {
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
 
-    this.reset(); // метод для начала новой игры
+    this.reset();
 
-    this.registerEvents(); // регистрация обработчика событий
+    this.registerEvents();
   }
-  // метод для сброса игры
+
   reset() {
     this.setNewWord();
     this.winsElement.textContent = 0;
     this.lossElement.textContent = 0;
-    initialTimeInSeconds = 60; // восстанавливаем начальное значение времени
-    document.getElementById("timer").textContent = formatTime(initialTimeInSeconds); // обновляем отображение времени
-    clearInterval(time); // сбрасываем таймер
+    initialTimeInSeconds = 60; // Восстанавливаем начальное значение времени
+    document.getElementById("timer").textContent = formatTime(initialTimeInSeconds); // Обновляем отображение времени
+    clearInterval(time); // Сбрасываем таймер
     time = setInterval(countdown, 1000);
   }
 
-  // метод для регистрации обработчиков событий
+
   registerEvents() {
     document.addEventListener("keydown", event => {
       const pressedKey = event.key.toUpperCase();
       const currentSymbol = this.currentSymbol.textContent.toUpperCase();
 
       if(pressedKey === currentSymbol) {
-        this.success(); // правильное нажатие
+        this.success(); 
       } else {
-        this.fail();  //  неправильное нажатие
+        this.fail();   
       }
     });
   }
-  // обработка успешного нажатия клавиши
+
   success() {
     if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
     this.currentSymbol.classList.add('symbol_correct');
@@ -75,7 +75,7 @@ class Game {
     }
     this.setNewWord();
   }
-  //обработка неудачного нажатия клавиши
+
   fail() {
     if (++this.lossElement.textContent === 5) {
       alert('Вы проиграли!');
@@ -83,13 +83,13 @@ class Game {
     }
     this.setNewWord();
   }
-  // установка нового слова
-  setNewWord() {
-    const word = this.getWord(); // получаем новое слово
 
-    this.renderWord(word); // отображаем новое слово на экране
+  setNewWord() {
+    const word = this.getWord();
+
+    this.renderWord(word);
   }
-  // получаем новое слово из массива
+
   getWord() {
     const words = [
         'bob',
@@ -102,13 +102,13 @@ class Game {
         'pop',
         'cin',
         'love',
-        'java'
+        'javanopopkilove'
       ],
-      index = Math.floor(Math.random() * words.length); // гегерируем случайный индекс
+      index = Math.floor(Math.random() * words.length);
 
     return words[index];
   }
-  // отображение слова на экране
+
   renderWord(word) {
     const html = [...word]
       .map(
@@ -122,4 +122,4 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game')); // новый объект игры
+new Game(document.getElementById('game'));

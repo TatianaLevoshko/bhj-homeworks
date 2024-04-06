@@ -122,4 +122,4 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game')); // новый объект игры
+new Game(document.getElementById('game'));
