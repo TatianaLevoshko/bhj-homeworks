@@ -5,8 +5,14 @@ setInterval(() => {
 	cases[currentIndex].classList.remove("rotator__case_active");
 	currentIndex = (currentIndex + 1) % cases.length;
 	cases[currentIndex].classList.add("rotator__case_active");
-	
-	const color = cases[currentIndex].dataset.color;
-	cases[currentIndex].style.color = color;
 
+	
+	cases.forEach((caseElement, index) => {
+		if()
+    });
 }, 1000);
+
+const speed = parseInt(cases[currentIndex].dataset.speed)
+const color = cases[currentIndex].dataset.color;
+caseElement.style.color = color;
+caseElement.style.transitionDuration = speed + 'ms';

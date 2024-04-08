@@ -8,5 +8,6 @@ setInterval(() => {
 	
 	const color = cases[currentIndex].dataset.color;
 	cases[currentIndex].style.color = color;
+	
 
 }, 1000);
