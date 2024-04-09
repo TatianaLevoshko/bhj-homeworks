@@ -5,7 +5,7 @@ const bookContent = document.querySelector(".book__content");
 
 // изменение размера шрифта
 function changeFontSize(size) {
-	bookContent.classList.remove("book_fs-small", "book_fs-big");
+	bookContent.classList.remove("book_fs-smal", "book_fs-big");
 	bookContent.classList.add(`book_fs-${size}`);
 }
 
