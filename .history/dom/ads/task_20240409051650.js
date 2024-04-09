@@ -1,5 +1,7 @@
 const cases = document.querySelectorAll(".rotator__case");
 let currentIndex = 0;
+const speeds = document.querySelectorAll("span[data-speed]");
+
 
 
 setInterval(() => {
@@ -9,5 +11,7 @@ setInterval(() => {
     
     const color = cases[currentIndex].dataset.color;
 	cases[currentIndex].style.color = color;
+	
+	let s = parseInt(speeds[currentIndex].getAttribute("data-speed"));
 
-}, 1000);
+}, s);

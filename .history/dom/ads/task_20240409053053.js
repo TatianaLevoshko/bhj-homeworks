@@ -1,5 +1,7 @@
 const cases = document.querySelectorAll(".rotator__case");
 let currentIndex = 0;
+/* const speeds = document.querySelectorAll("span[data-speed]");
+let s = parseInt(speeds[currentIndex].getAttribute("data-speed")); */
 
 
 setInterval(() => {
