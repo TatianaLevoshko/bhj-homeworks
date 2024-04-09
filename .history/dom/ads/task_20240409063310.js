@@ -17,8 +17,8 @@ function rotator() {
     cases[currentIndex].style.color = color;
     // получаем значение скорости смены элементов из атрибута data текущего элемента
     const speed = parseInt(cases[currentIndex].dataset.speed);
-    // устанавливаем таймер, который запускает функцию rotator() повторно через заданное время скорости
+    // устанавливаем таймер, который запускает 
     setTimeout(rotator, speed)
 };
- // запуск функции один раз, для начала смены элементов
+ 
 rotator();
