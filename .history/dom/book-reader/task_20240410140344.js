@@ -16,7 +16,7 @@ function changeTextColor(color) {
 }
 // изменение цвета фона
 function changeBgColor(color) {
-	bookContent.classList.remove("book_bg-black", "book_bg-gray", "book_bg-white");
+	bookContent.classList.remove("book_bg-black", "book_bg-gray", "book_bg-whi");
 	bookContent.classList.add(`book_bg-${color}`);
 }
 
@@ -53,7 +53,7 @@ bgColorControls.forEach(control => {
 		const color = this.getAttribute("data-bg-color");
 		changeBgColor(color);
 		// убираем класс color_active у всех элементов
-		bgColorControls.forEach(control => control.classList.remove("color_active"));
+		textColorControls.forEach(control => control.classList.remove("color_active"));
 		// добавляем color_active только текущему элементу
 		this.classList.add("color_active");
 	});
