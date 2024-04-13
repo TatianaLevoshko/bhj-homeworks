@@ -1,4 +1,4 @@
-"use strict";
+""
 document.addEventListener('DOMContentLoaded', () => {
     const tasksList = document.getElementById('tasks__list'); // получаем список задач
 

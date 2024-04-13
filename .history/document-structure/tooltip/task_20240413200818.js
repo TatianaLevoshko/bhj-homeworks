@@ -13,9 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		// удаляем класс для дезактивации подсказки
 		tooltip.classList.add("tooltip_active");
 	});
-	// обр.соб. клика на ссылку
-	link.addEventListener("click", (event) => {
-		// запрет стандартного действия перехода по ссылке
-		event.preventDefault();
-	});
+	link.addEventListener("cli")
 };

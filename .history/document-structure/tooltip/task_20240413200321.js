@@ -7,15 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	link.addEventListener("mouseover", () => {
 		// добавляем класс для активации подсказки
 		tooltip.classList.add("tooltip_active");
+
+		
 	});
-	// обработчик событий ухода мыши со ссылки
-	link.addEventListener("mouseover", () => {
-		// удаляем класс для дезактивации подсказки
-		tooltip.classList.add("tooltip_active");
-	});
-	// обр.соб. клика на ссылку
-	link.addEventListener("click", (event) => {
-		// запрет стандартного действия перехода по ссылке
-		event.preventDefault();
-	});
+
+
+
+
+
+
 };

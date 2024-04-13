@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	// обр.соб. клика на ссылку
 	link.addEventListener("click", (event) => {
-		// запрет стандартного действия перехода по ссылке
-		event.preventDefault();
-	});
+		event.preventDefault()
+	})
 };
