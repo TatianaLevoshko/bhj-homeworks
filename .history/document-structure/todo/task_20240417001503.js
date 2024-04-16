@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="#" class="task__remove">&times;</a>
             </div>
         `;
-        const taskElement = document.createElement('div');
-        taskElement.innerHTML = taskTemplate.trim();
-        tasksList.appendChild(taskElement.firstChild);
+        const taskElement = document.createElement('div'); // создаем новый элемент задачи
+        taskElement.innerHTML = taskTemplate.trim(); // вставляем шаблон задачи в созданный элемент
+        tasksList.appendChild(taskElement.firstChild); // добавляем задачу в список
     }
 
     // функция для удаления задачи
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // обработчик события для кнопки "Добавить"
     document.getElementById('tasks__add').addEventListener('click', (event) => {
-        event.preventDefault(); 
+        event.preventDefault(); // предотвращаем стандартное действие кнопки
         const taskInput = document.getElementById('task__input'); // получаем поле ввода
         const taskTitle = taskInput.value.trim(); // получаем текст задачи и убираем лишние пробелы
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-/* 
+
     // обработчик события для клавиши "Enter" в поле ввода
     document.getElementById('task__input').addEventListener('keypress', (event) => {
         if (event.key === 'Enter') { // проверяем, что нажата клавиша "Enter"
@@ -53,5 +53,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.target.value = ''; // очищаем поле ввода
             }
         }
-    }); */
+    });
 });

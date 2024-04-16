@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-/* 
+
     // обработчик события для клавиши "Enter" в поле ввода
     document.getElementById('task__input').addEventListener('keypress', (event) => {
         if (event.key === 'Enter') { // проверяем, что нажата клавиша "Enter"
@@ -53,5 +53,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.target.value = ''; // очищаем поле ввода
             }
         }
-    }); */
+    });
 });
