@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					tooltipPosition = `right: ${window.innerWidth - left}px; top: ${top}px; `;
 				  break;
 				case 'right':
-					tooltipPosition = `left: ${right}px; top: ${top}px;`;
+				  tooltipPos = `left: ${right}px; top: ${top}px;`;
 				  break;
 			  }
 

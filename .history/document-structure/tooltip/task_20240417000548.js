@@ -12,23 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
 			const left = rect.left;
 			const top = rect.top;
 
-			const position = "bottom";
-			let tooltipPosition;
-
 			switch (position) {
 				case 'bottom':
-					tooltipPosition = `left: ${left}px; top: ${bottom}px; `;
+				  tooltipPos = `left: ${left}px; top: ${bottom}px; `;
 				  break;
 				case 'top':
-					tooltipPosition = `left: ${left}px; bottom: ${window.innerHeight - top}px; `;
+				  tooltipPos = `left: ${left}px; bottom: ${window.innerHeight - top}px; `;
 				  break;
 				case 'left':
-					tooltipPosition = `right: ${window.innerWidth - left}px; top: ${top}px; `;
+				  tooltipPos = `right: ${window.innerWidth - left}px; top: ${top}px; `;
 				  break;
 				case 'right':
-					tooltipPosition = `left: ${right}px; top: ${top}px;`;
+				  tooltipPos = `left: ${right}px; top: ${top}px;`;
 				  break;
 			  }
+			
+			
 
 			const tooltipEl = `<div class="tooltip tooltip_active" style ="${tooltipPosition}">${element.title}</div>`;
 			const openedTooltip = document.querySelector('.tooltip_active');
