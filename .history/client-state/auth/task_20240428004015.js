@@ -30,18 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
 		
 		xhr.onload = function () {
 			if (xhr.status === 200) {
-				// если ответ успешный
+				// Если ответ успешный
 				if (xhr.response.success) {
 					hideSignin();
 					const userId = xhr.response.user_id;
 					localStorage.setItem("user_id", userId);
 					welcome.querySelector("#user_id").textContent = userId;
 				} else {
-					// если авторизация не удалась
+					// Если авторизация не удалась
 					alert("Неверный логин/пароль");
 				}
 			} else {
-				// если статус ответа не 200
+				// Если статус ответа не 200
 				alert("Ошибка сервера. Попробуйте позже.");
 			}
 		};

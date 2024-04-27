@@ -37,11 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
 					localStorage.setItem("user_id", userId);
 					welcome.querySelector("#user_id").textContent = userId;
 				} else {
-					// если авторизация не удалась
+					// Если авторизация не удалась
 					alert("Неверный логин/пароль");
 				}
 			} else {
-				// если статус ответа не 200
+				// Если статус ответа не 200
 				alert("Ошибка сервера. Попробуйте позже.");
 			}
 		};
