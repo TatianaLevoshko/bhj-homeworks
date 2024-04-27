@@ -1,1 +1,0 @@
-const cases = document.querySelectorAll()

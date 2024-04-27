@@ -1,1 +1,0 @@
-const revealEltvts = document.quer
