@@ -1,4 +1,5 @@
 "use strict";
+
 document.addEventListener("DOMContentLoaded", () => {
 	// есть ли в cookie информация о закрытии окна?
     const isModalClosed = document.cookie.includes("modalClosed=true");
