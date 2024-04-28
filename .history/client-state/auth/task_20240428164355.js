@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		signin.classList.remove("signin_active");
 		welcome.classList.add("welcome_active");
 	}
-	
 	form.addEventListener("submit", (event) => {
 		event.preventDefault();
 		const formData = new FormData(form);

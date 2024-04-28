@@ -11,7 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		signin.classList.remove("signin_active");
 		welcome.classList.add("welcome_active");
 	}
-	
+
+	// если в localStorage есть сохраненный userId
+	if (userIdInStorage) {
+		hideSignin();
+		welcome.querySelector("#user_id").textContent = userIdInStorage;
+	}
+
 	form.addEventListener("submit", (event) => {
 		event.preventDefault();
 		const formData = new FormData(form);
