@@ -26,8 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const xhr = new XMLHttpRequest();
 		xhr.open("POST", "https://students.netoservices.ru/nestjs-backend/auth");
 		xhr.responseType = "json";
-		xhr.send(formData);
-	});
+		xhr.send(formData));
 		
 		xhr.onerror = function () {
 			alert("Запрос не удался");
