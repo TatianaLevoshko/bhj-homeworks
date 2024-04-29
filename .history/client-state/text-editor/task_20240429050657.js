@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // есть ли сохраненный текст в localStorage
     const savedText = localStorage.getItem("editorText");
+   
 
     // обр.соб. изменения текста в редакторе
     editor.addEventListener("input", () => {
