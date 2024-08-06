@@ -1,89 +1,84 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
-	// получаем все элементы с классом .product
-	const products = document.querySelectorAll(".product");
+    const products = document.querySelectorAll(".product");
 
-	// получаем элемент корзина
-	const cartProducts = document.querySelector(".cart__products");
+    const cartProducts = document.querySelector(".cart__products");
 
-	// обработчик событий на кнопки увеличить/уменьшить количество товара и кнопку добавить в корзину
-	// для каждого товара из списка
-	products.forEach(product => {
-		// получаем элементы кнопок управления количеством товара и кнопку добавления/удаления из корзины
-		const quantityValue = product.querySelector(".product__quantity-value")
-		const addButton = product.querySelector(".product__add");
+    products.forEach(product => {
+        const quantityValue = product.querySelector(".product__quantity-value");
+        const addButton = product.querySelector(".product__add");
+		
 		const removeButton = product.querySelector(".product__remuve");
-		const productId = product.dataset.id // уникальный идентификатор товара (data-id)
-		// назначаем обработчик события клика на кнопку добавления товара в корзину
-		addButton.addEventListener("click", () => addToCart(productId, quantityValue.textContent));
-		// назначаем обработчик события клика на кнопку удаления товара из корзины
-		removeButton.addEventListener("click", () => removeFromCart(productId));
+        const productId = product.dataset.id; 
+      
+        removeButton.addEventListener("click", () => removeFromCart(productId));
+        addButton.addEventListener("click", () => addToCart(productId, quantityValue.textContent));
 
-		// назначаем обработчики событий на кнопки увеличения/уменьшения количества товара
-		product.querySelectorAll(".product__quantity-control").forEach(control => {
-			control.addEventListener('click', () => changeQuantity(control, quantityValue));
-		});
-	});
+        product.querySelectorAll(".product__quantity-control").forEach(control => {
+            control.addEventListener('click', () => changeQuantity(control, quantityValue));
+        });
+    });
 
-	//
-	function changeQuantity(control, quantityValue) {
-		// получение текущего значения количества товара из текстового содержимого элемента и преобразование его в число
-		let quantity = parseInt(quantityValue.textContent);
-		// проверка, является ли элемент кнопкой уменьшения товара
-		if (control.classList.contains("product__quantity-control_dec")) {
-			// если текущее колличество товара больше 1, уменьшаем его на 1
-			if (quantity > 1) {
-				quantity--;
-			}
-			// проверка, является ли элемент кнопкой увеличения товара		
-		} else if (control.classList.contains('product__quantity-control_inc')) {
-			// eвеличиваем текущее количество товара на 1
-			quantity++;
-		}
-		// обновление отображаемого значения количества товара.
-		quantityValue.textContent = quantity;
-	}
+    function changeQuantity(control, quantityValue) {
+        let quantity = parseInt(quantityValue.textContent);
+        if (control.classList.contains("product__quantity-control_dec")) {
+            if (quantity > 1) {
+                quantity--;
+            }
+        } else if (control.classList.contains('product__quantity-control_inc')) {
+            quantity++;
+        }
+        quantityValue.textContent = quantity;
+    }
 
-	// функция для добавления товара в корзину
-	function addToCart(productId, quantity) {
-		// поиск существующего товара в корзине по его идентификатору
+    function addToCart(productId, quantity) {
+        const existingProduct = cartProducts.querySelector(`.cart__product[data-id="${productId}"]`);
+        if (existingProduct) {
+            const countElement = existingProduct.querySelector('.cart__product-count');
+            countElement.textContent = parseInt(countElement.textContent) + parseInt(quantity);
+        } else {
+            const product = document.querySelector(`.product[data-id="${productId}"]`);
+            const image = product.querySelector('.product__image').src;
+            const newProduct = document.createElement('div');
+            newProduct.classList.add('cart__product');
+            newProduct.dataset.id = productId;
+            newProduct.innerHTML = `
+                <img class="cart__product-image" src="${image}">
+                <div class="cart__product-controls">
+                    <button class="cart__product-control cart__product-control_dec">-</button>
+                    <div class="cart__product-count">${quantity}</div>
+                    <button class="cart__product-control cart__product-control_inc">+</button>
+                </div>
+            `;
+            cartProducts.appendChild(newProduct);
+
+            newProduct.querySelectorAll(".cart__product-control").forEach(control => {
+                control.addEventListener('click', () => changeCartQuantity(control, productId));
+            });
+        }
+    }
+
+    function changeCartQuantity(control, productId) {
+        const existingProduct = cartProducts.querySelector(`.cart__product[data-id="${productId}"]`);
+        if (existingProduct) {
+            const countElement = existingProduct.querySelector('.cart__product-count');
+            let quantity = parseInt(countElement.textContent);
+            if (control.classList.contains("cart__product-control_dec")) {
+                if (quantity > 1) {
+                    quantity--;
+                }
+            } else if (control.classList.contains('cart__product-control_inc')) {
+                quantity++;
+            }
+            countElement.textContent = quantity;
+        }
+    }
+
+    function removeFromCart(productId) {
 		const existingProduct = cartProducts.querySelector(`.cart__product[data-id="${productId}"]`);
-
-		// если товар уже есть в корзине
 		if (existingProduct) {
-			// находим элемент, отображающий количество товара в корзине
-			const countElement = existingProduct.querySelector('.cart__product-count');
-			// увеличиваем количество товара на количество добавляемого товара
-			countElement.textContent = parseInt(countElement.textContent) + parseInt(quantity);
-		} else {
-			// если товара нет в корзине, создаем новый элемент для него
-			const product = document.querySelector(`.product[data-id="${productId}"]`);
-			// получаем изображение товара
-			const image = product.querySelector('.product__image').src;
-			// создаем новый элемент товара в корзине
-			const newProduct = document.createElement('div');
-			// добавляем класс для стилизации
-			newProduct.classList.add('cart__product');
-			// устанавливаем атрибут data-id, чтобы идентифицировать товар
-			newProduct.dataset.id = productId;
-			// заполняем HTML нового элемента с изображением и количеством товара
-			newProduct.innerHTML = `
-					<img class="cart__product-image" src="${image}">
-					<div class="cart__product-count">${quantity}</div>
-				`;
-			// добавляем новый элемент в корзину
-			cartProducts.appendChild(newProduct);
-		}
-	}
-
-	// функция для удаления товара из корзины
-	function removeFromCart(productId) {
-		// поиск товара по id
-		const existingProduct = cartProducts.querySelector(`.cart__product[data-id="${productId}"]`);
-		// если товар есть в корзине
-		if (existingProduct) {
-			// удалить элемент из ДОМ
 			existingProduct.remove();
 		}
 	}
+	
 });
