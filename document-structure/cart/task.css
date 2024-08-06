@@ -9,14 +9,15 @@ body {
 
 .cart__product {
   position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 .cart__product-count {
-  position: absolute;
-  top: 0;
-  right: 0;
   border: 2px solid green;
   border-radius: 50%;
   padding: 2px 5px;
+  margin-left: 10px;
 }
 
 .cart__product-image {
@@ -95,6 +96,26 @@ body {
   opacity: 0.8;
 }
 
-.product-shadow {
-  position: absolute;
+.cart__product-controls {
+  display: flex;
+  align-items: center;
+}
+
+.cart__product-control {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.cart__product-control:hover {
+  background: gray;
+  color: #fff;
+  
 }
